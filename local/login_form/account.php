@@ -43,16 +43,25 @@ require_once '../../config.php';
  if (isset($_POST['email'])){
     $email = $_POST["email"];
  }
- if (isset($_POST['firstname'])){
+ if (isset($_POST['phone'])){
     $phone = $_POST["phone"];
  }
- if (isset($_POST['firstname'])){
+ if (isset($_POST['jobtitle'])){
     $job = $_POST["jobtitle"];
  }
- if (isset($_POST['firstname'])){
+ if (isset($_POST['password'])){
     $pass = $_POST["password"];
  }
-global $fname, $lname, $email, $phone, $job, $pass;
+ global $fname, $lname, $email, $phone, $job, $pass;
+ $record = new stdClass;
+ $record->firstname= $fname;
+ $record->lastname= $lname;
+ $record->email= $email;
+ $record->phone= $phone;
+ $record->jobtitle= $job;
+ $record->password= $pass;
+
+
  
 $DB->insert_records($local_login_form_users, $fname, $lname, $email, $phone, $job, $pass);
 
