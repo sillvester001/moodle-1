@@ -30,7 +30,7 @@ require_once '../../config.php';
  
  global $USER, $DB, $CFG;
 
- $PAGE->set_url('/local/login_form/index.php');
+ $PAGE->set_url('/local/login_form/account.php');
  $PAGE->set_context(context_system::instance());
 
 
