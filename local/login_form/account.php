@@ -34,18 +34,6 @@ require_once '../../config.php';
  $PAGE->set_context(context_system::instance());
 
 
-// Create connection
- $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moodle";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
- if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
  if (isset($_POST['firstname'])){
     $fname = $_POST["firstname"];
  }
@@ -64,15 +52,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
  if (isset($_POST['firstname'])){
     $pass = $_POST["password"];
  }
-
- global $fname, $lname, $email, $phone, $pass, $job;
+global $fname, $lname, $email, $phone, $job, $pass;
  
- $sql = "INSERT INTO mdl_local_login_form_users (Id, firstname, lastname, email, phone, job, password) VALUES ('0', '$fname', '$lname', '$email', '$phone', '$job', '$pass')";
+$DB->insert_records($local_login_form_users, $fname, $lname, $email, $phone, $job, $pass);
 
  echo $OUTPUT->header();
 
  echo $OUTPUT->render_from_template('local_login_form/welcome', []);
-
+ 
  echo $OUTPUT->footer();
+ 
 
 
