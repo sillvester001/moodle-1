@@ -20,7 +20,34 @@
             
             </p>
         </div>
-
+        
+        <!--
+            Assuming your file is in local/local_form/pix/t/myimage.png
+            
+            We can include it using
+            
+            {{#pix}} t/myimage, local_login_form {{/pix}}
+            
+            the above only works for file that are in the pix directory, so you can research a bit more on this
+            
+            The other option is to just reference the image directly
+            
+            i.e.
+            
+            <img src="path/to/image" >
+            
+            NB. The path to image is relative to whatever tou set to as the page_url
+            
+            And lastly as shown in the email you can create an image url first and pass it as a parameter to your 
+            file
+            
+            $image = $OUTPUT->image_url('path/to/image.png')
+            
+            ...
+            echo $OUTPUT->render_from_template('template_name', ['image' => $image]);
+            
+        -->
+        
         <!-- Registeration Form -->
         <div class="col-md-7 col-lg-6 ml-auto">
             <form action="#">
