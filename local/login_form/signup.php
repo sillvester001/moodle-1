@@ -24,29 +24,46 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// define variables and set to empty values
 
  require_once '../../config.php';
  
  global $USER, $DB, $CFG;
 
- $PAGE->set_url('/local/login_form/index.php');
+ $PAGE->set_url('/local/login_form/signup.php');
  $PAGE->set_context(context_system::instance());
-//  $PAGE->require->'/local/login_form/lang/en/local_login_form.php';
-// $PAGE->requre->('/assets/css/login.css');
 
-require_login();
+ //database...
+ 
 
- $strpagetitle= get_string('pagetitle', 'local_login_form');
- $strpageheading= get_string('pageheading', 'local_login_form');
+//database ends.
 
- $PAGE->set_title($strpagetitle);
- $PAGE->set_heading( $strpageheading);
+//require_login();
+
+ $strpagesignup= get_string('signup', 'local_login_form');
+ $strpageconfirmation= get_string('confirmation', 'local_login_form');
+
+ $PAGE->set_title($strpagesignup);
+ $PAGE->set_heading( $strpageconfirmation);
 
 
  echo $OUTPUT->header();
+ echo "Names: ";
+ echo $_POST["firstname"];
+ echo $_POST["lastname"];
+ echo "<br>EMAIL: ";
+ echo $_POST["email"];
+ echo "<br>PHONE: ";
+ echo $_POST["phone"];
+ echo "<br>JOB: ";
+ echo $_POST["jobtitle"];
+ echo "<br>PASSWORD: ";
+ echo $_POST["password"];
+ echo "<br>";
+ echo $OUTPUT->render_from_template('local_login_form/button', []);
 
- echo $OUTPUT->render_from_template('local_login_form/login', []);
-
+ 
  echo $OUTPUT->footer();
+ 
 
 

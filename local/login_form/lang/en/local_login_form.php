@@ -27,3 +27,6 @@
  $string['pluginname'] = 'login form';
  $string['pagetitle'] = 'LOGIN';
  $string['pageheading'] = '<b>PLEASE LOGIN</b>';
+ //signup page
+ $string['signup'] = 'sign up';
+ $string['confirmation'] = 'CONFIRM YOUR DETAILS!';

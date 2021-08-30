@@ -25,27 +25,53 @@
  */
 
 
- require_once '../../config.php';
+
+require_once '../../config.php';
  
  global $USER, $DB, $CFG;
 
  $PAGE->set_url('/local/login_form/index.php');
  $PAGE->set_context(context_system::instance());
-//  $PAGE->require->'/local/login_form/lang/en/local_login_form.php';
-// $PAGE->requre->('/assets/css/login.css');
 
-require_login();
 
- $strpagetitle= get_string('pagetitle', 'local_login_form');
- $strpageheading= get_string('pageheading', 'local_login_form');
+// Create connection
+ $servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "moodle";
 
- $PAGE->set_title($strpagetitle);
- $PAGE->set_heading( $strpageheading);
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+ if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
 
+ if (isset($_POST['firstname'])){
+    $fname = $_POST["firstname"];
+ }
+ if (isset($_POST['lastname'])){
+    $lname = $_POST["lastname"];
+ }
+ if (isset($_POST['email'])){
+    $email = $_POST["email"];
+ }
+ if (isset($_POST['firstname'])){
+    $phone = $_POST["phone"];
+ }
+ if (isset($_POST['firstname'])){
+    $job = $_POST["jobtitle"];
+ }
+ if (isset($_POST['firstname'])){
+    $pass = $_POST["password"];
+ }
+
+ global $fname, $lname, $email, $phone, $pass, $job;
+ 
+ $sql = "INSERT INTO mdl_local_login_form_users (Id, firstname, lastname, email, phone, job, password) VALUES ('0', '$fname', '$lname', '$email', '$phone', '$job', '$pass')";
 
  echo $OUTPUT->header();
 
- echo $OUTPUT->render_from_template('local_login_form/login', []);
+ echo $OUTPUT->render_from_template('local_login_form/welcome', []);
 
  echo $OUTPUT->footer();
 

@@ -1,10 +1,11 @@
+
 <!-- Navbar-->
 <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light py-3">
         <div class="container">
             <!-- Navbar Brand -->
             <a href="#" class="navbar-brand">
-                <img src="assets/images/skillcat.jpg" alt="logo" width="">
+                <img src="assets/images/skillcat.jpg" alt="logo" width="100">
             </a>
         </div>
     </nav>
@@ -20,37 +21,10 @@
             
             </p>
         </div>
-        
-        <!--
-            Assuming your file is in local/local_form/pix/t/myimage.png
-            
-            We can include it using
-            
-            {{#pix}} t/myimage, local_login_form {{/pix}}
-            
-            the above only works for file that are in the pix directory, so you can research a bit more on this
-            
-            The other option is to just reference the image directly
-            
-            i.e.
-            
-            <img src="path/to/image" >
-            
-            NB. The path to image is relative to whatever tou set to as the page_url
-            
-            And lastly as shown in the email you can create an image url first and pass it as a parameter to your 
-            file
-            
-            $image = $OUTPUT->image_url('path/to/image.png')
-            
-            ...
-            echo $OUTPUT->render_from_template('template_name', ['image' => $image]);
-            
-        -->
-        
+
         <!-- Registeration Form -->
-        <div class="col-md-7 col-lg-6 ml-auto">
-            <form action="#">
+        <div class="col-md-7 col-lg-6 ml-auto" >
+            <form name="myForm" action="signup.php" method="POST">
                 <div class="row">
 
                     <!-- First Name -->
@@ -60,7 +34,8 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                        <input id="firstName" type="text" name="firstname" placeholder="First Name" class="form-control bg-white border-left-0 border-md" required>
+                        
                     </div>
 
                     <!-- Last Name -->
@@ -70,7 +45,7 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
+                        <input id="lastName" type="text" name="lastname" placeholder="Last Name" class="form-control bg-white border-left-0 border-md" required>
                     </div>
 
                     <!-- Email Address -->
@@ -80,7 +55,7 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                        <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
                     </div>
 
                     <!-- Phone Number -->
@@ -91,12 +66,12 @@
                             </span>
                         </div>
                         <select id="countryCode" name="countryCode" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
-                            <option value="">+12</option>
+                            <option value="">+254</option>
                             <option value="">+10</option>
                             <option value="">+15</option>
                             <option value="">+18</option>
                         </select>
-                        <input id="phoneNumber" type="tel" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                        <input id="phoneNumber" type="tel" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
                     </div>.
 
 
@@ -107,7 +82,7 @@
                                 <i class="fa fa-black-tie text-muted"></i>
                             </span>
                         </div>
-                        <select id="job" name="jobtitle" class="form-control custom-select bg-white border-left-0 border-md">
+                        <select id="job" name="jobtitle" class="form-control custom-select bg-white border-left-0 border-md" required>
                             <option value="">Choose your job</option>
                             <option value="">Designer</option>
                             <option value="">Developer</option>
@@ -123,7 +98,7 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                        <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md" required>
                     </div>
 
                     <!-- Password Confirmation -->
@@ -133,14 +108,12 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="passwordConfirmation" type="text" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
+                        <input id="passwordConfirmation" type="text" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md" required>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="form-group col-lg-12 mx-auto mb-0">
-                        <a href="#" class="btn btn-primary btn-block py-2">
-                            <span class="font-weight-bold">Create your account</span>
-                        </a>
+                        <button class="btn btn-primary" type="submit">Create Your Account</button>
                     </div>
 
                     <!-- Divider Text -->

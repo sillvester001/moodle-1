@@ -27,6 +27,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_login_form';
-$plugin->version = '2021082800';
+$plugin->version = '2021082804';
 $plugin->requires = '2021082000.00';
 $plugin->maturity = MATURITY_ALPHA;
