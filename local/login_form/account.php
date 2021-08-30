@@ -63,7 +63,11 @@ require_once '../../config.php';
 
 
  
-$DB->insert_records($local_login_form_users, $fname, $lname, $email, $phone, $job, $pass);
+// $DB->insert_records($local_login_form_users, $fname, $lname, $email, $phone, $job, $pass);
+// user is the table name. Also note the use of insert_record instead of insert_records
+// Check the documentation for the difference between the two
+// but essentially insert_records is inserting multiple items
+$DB->insert_record('user', $record);
 
  echo $OUTPUT->header();
 
